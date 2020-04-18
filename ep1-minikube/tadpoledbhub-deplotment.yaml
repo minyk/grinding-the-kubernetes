@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tadpoledbhub-deployment
+  labels:
+    app: tadpoledbhub
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tadpoledbhub
+  template:
+    metadata:
+      labels:
+        app: tadpoledbhub
+    spec:
+      containers:
+      - name: tadpoledbhub
+        image: hyunjongcho/tadpoledbhub:2.0.1
+        ports:
+        - containerPort: 8080
